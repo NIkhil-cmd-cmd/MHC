@@ -10,11 +10,11 @@ long_text = "This is a long sentence that needs to be wrapped in the sidebar ins
 wrapped_text = textwrap.fill(long_text, width=10)
 
 # Add wrapped text to the sidebar
-''''with st.sidebar:
-    st.header("Sidebar Text")
-    st.write(wrapped_text)
-openai.api_key = st.secrets["OPENAI_API_KEY"]
-'''
+#with st.sidebar:
+   # st.header("Sidebar Text")
+   # st.write(wrapped_text)
+#openai.api_key = st.secrets["OPENAI_API_KEY"]
+
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
