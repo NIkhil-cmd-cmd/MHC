@@ -20,7 +20,7 @@ if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
 
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = [{"role": "user", "assistant": "You are a helpful assistant that provides useful information and helps users improve their mental health."}]
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
