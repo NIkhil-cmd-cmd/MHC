@@ -3,6 +3,10 @@ import streamlit as st
 
 st.title("Mental Health Chatbot")
 
+with st.sidebar:
+    st.title("Sidebar")
+    st.text("Adout the project and feedback form can go here")
+
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 if "openai_model" not in st.session_state:
@@ -35,3 +39,5 @@ if prompt := st.chat_input("What is up?"):
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
+
+
