@@ -1,12 +1,18 @@
 import openai
 import streamlit as st
+import textwrap
 
 st.title("Mental Health Chatbot")
 
-with st.sidebar:
-    st.title("Sidebar")
-    st.text("Adout the project and feedback form can go here")
+long_text = "This is a long sentence that needs to be wrapped in the sidebar instead of going horizontally."
 
+# Wrap the text to a specified width
+wrapped_text = textwrap.fill(long_text, width=10)
+
+# Add wrapped text to the sidebar
+with st.sidebar:
+    st.header("Sidebar Text")
+    st.write(wrapped_text)
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 if "openai_model" not in st.session_state:
