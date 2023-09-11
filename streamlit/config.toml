@@ -1,2 +1,3 @@
 [theme]
-font = "monospace"
+base="light"
+font="monospace"
