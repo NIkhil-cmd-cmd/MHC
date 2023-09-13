@@ -2,6 +2,7 @@ import openai
 import streamlit as st
 import textwrap
 import base64
+counter = 0
 with open('style.css') as f:
    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
    
@@ -80,9 +81,9 @@ if prompt := st.chat_input("Say something..."):
             stream=True,
         ):
             full_response += response.choices[0].delta.get("content", "")
-            st.markdown(type(full_response))
-            if "WARNING" in str(full_response):
+            if "WARNING" in str(full_response) and counter == 0:
                 st.warning('This is a warning', icon="⚠️")
+                counter = 1 
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
