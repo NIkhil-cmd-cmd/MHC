@@ -36,7 +36,7 @@ st.session_state.messages.append(system_message)
 
 for message in st.session_state.messages:
    if message["role"] != "system":
-        with st.chat_message(message["role"]:
+        with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
 if prompt := st.chat_input("What is up?"):
