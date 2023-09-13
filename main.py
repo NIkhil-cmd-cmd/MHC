@@ -82,7 +82,7 @@ if prompt := st.chat_input("Say something..."):
         ):
             full_response += response.choices[0].delta.get("content", "")
             if "WARNING" in str(full_response) and counter == 0:
-                full_response.replace("WARNING", " ")
+                full_response = full_response.replace("WARNING", " ")
                 st.warning('Your message has been flagged as a potential sign of mental health issues. Please seek appropriate assistance. Refer to the resources tab for further guidance', icon="⚠️")
                 counter = 1 
             message_placeholder.markdown(full_response + "▌")
