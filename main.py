@@ -6,16 +6,17 @@ with open('style.css') as f:
    
 st.title("Mental Health Chatbot")
 
-long_text = "This is a long sentence that needs to be wrapped in the sidebar instead of going horizontally."
+long_text = "Hello, this is the experiMENTAL health chatbot ui. please subscribe to my youtube channel"
 
 # Wrap the text to a specified width
 wrapped_text = textwrap.fill(long_text, width=10)
 
-# Add wrapped text to the sidebar
-#with st.sidebar:
-   # st.header("Sidebar Text")
-   # st.write(wrapped_text)
-#openai.api_key = st.secrets["OPENAI_API_KEY"]
+Add wrapped text to the sidebar
+with st.sidebar:
+   st.header("About the Project")
+   st.write(wrapped_text)
+   
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 
 if "openai_model" not in st.session_state:
@@ -27,11 +28,6 @@ if "messages" not in st.session_state:
 system_message = {
     "role": "system",
     "content": "You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING'"
-}
-
-system_message = {
-    "role": "assistant",
-    "content": "Hello! I am a mental health chatbot designed to help you feel better!"
 }
 
 st.session_state.messages.append(system_message)
