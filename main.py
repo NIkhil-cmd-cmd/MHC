@@ -11,7 +11,7 @@ long_text = "Hello, this is the experiMENTAL health chatbot ui. please subscribe
 # Wrap the text to a specified width
 wrapped_text = textwrap.fill(long_text, width=10)
 
-Add wrapped text to the sidebar
+#Add wrapped text to the sidebar
 with st.sidebar:
    st.header("About the Project")
    st.write(wrapped_text)
