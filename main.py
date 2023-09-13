@@ -22,10 +22,11 @@ if "openai_model" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-st.session_state.messages.append({
+system_message = {
     "role": "system",
     "content": "You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING'"
-})
+}
+st.session_state.messages.append(system_message)
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
