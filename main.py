@@ -80,7 +80,8 @@ if prompt := st.chat_input("Say something..."):
             stream=True,
         ):
             full_response += response.choices[0].delta.get("content", "")
-            if "WARNING" in full_reponse:
+            st.markdown(type(full_response))
+            if "WARNING" in str(full_response):
                 st.warning('This is a warning', icon="⚠️")
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
