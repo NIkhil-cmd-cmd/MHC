@@ -9,13 +9,6 @@ with open('style.css') as f:
 st.title("Mental Health Chatbot")
 
 def set_bg_hack(main_bg):
-    '''
-    A function to unpack an image from root folder and set as bg.
- 
-    Returns
-    -------
-    The background.
-    '''
     # set bg name
     main_bg_ext = "png"
         
@@ -45,6 +38,10 @@ with st.sidebar:
    
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+system_message = {
+    "role": "system",
+    "content": "You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING' It i"
+}
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
@@ -52,10 +49,7 @@ if "openai_model" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-system_message = {
-    "role": "system",
-    "content": "You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING'"
-}
+
 
 st.session_state.messages.append(system_message)
 
