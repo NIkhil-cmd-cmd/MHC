@@ -36,7 +36,7 @@ st.session_state.messages.append(system_message)
 
 for message in st.session_state.messages:
    if message["role"] != "system":
-        with st.chat_message(message["role"], avatar = 'A'):
+        with st.chat_message(message["role"]:
             st.markdown(message["content"])
 
 if prompt := st.chat_input("What is up?"):
@@ -44,7 +44,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    with st.chat_message("assistant", avatar = 'A'):
+    with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
         for response in openai.ChatCompletion.create(
