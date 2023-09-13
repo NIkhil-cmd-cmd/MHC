@@ -1,7 +1,9 @@
 import openai
 import streamlit as st
 import textwrap
-
+with open('style.css') as f:
+   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+   
 st.title("Mental Health Chatbot")
 
 long_text = "This is a long sentence that needs to be wrapped in the sidebar instead of going horizontally."
