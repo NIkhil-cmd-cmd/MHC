@@ -43,7 +43,7 @@ if "messages" not in st.session_state:
    
 system_message = {
     "role": "system",
-    "content": "You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING' It i"
+    "content": "REPLY WITH WARNING IF MESSAGE IS SUICIDAL OR HOMICIDAL. You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING' It i"
 }
 st.session_state.messages.append(system_message)
 
@@ -58,7 +58,9 @@ for message in st.session_state.messages:
 if prompt := st.chat_input("Say something..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
+       
         st.markdown(prompt)
+       
 
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
