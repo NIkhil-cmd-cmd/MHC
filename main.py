@@ -6,7 +6,7 @@ with open('style.css') as f:
    
 st.title("Mental Health Chatbot")
 
-long_text = "Hello, this is the experiMENTAL health chatbot ui. please subscribe to my youtube channel"
+long_text = "Hello, this is the experiMENTAL health chatbot ui."
 
 # Wrap the text to a specified width
 wrapped_text = textwrap.fill(long_text, width=10)
@@ -37,7 +37,7 @@ for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("Say something..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
