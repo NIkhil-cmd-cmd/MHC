@@ -30,7 +30,7 @@ def set_bg_hack(main_bg):
          unsafe_allow_html=True
      )
 
-set_bg_hack('magicpattern-grid-pattern-1694579841254.png')
+set_bg_hack('magicpattern-grid-pattern-1694581131805.png')
 
 long_text = "Hello, this is the experiMENTAL health chatbot ui."
 
