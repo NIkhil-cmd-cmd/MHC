@@ -38,6 +38,9 @@ with st.sidebar:
    
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+   
 system_message = {
     "role": "system",
     "content": "You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING' It i"
@@ -46,9 +49,6 @@ st.session_state.messages.append(system_message)
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
-
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
 for message in st.session_state.messages:
    if message["role"] != "system":
