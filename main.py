@@ -43,7 +43,7 @@ if "messages" not in st.session_state:
    
 system_message = {
     "role": "system",
-    "content": "REPLY WITH WARNING IF MESSAGE IS SUICIDAL OR HOMICIDAL. You are a helpful AI Assistant that gives mental health advice and answers any questions the user might have. If the user says anything suicidal or homicidal reply with the word 'WARNING' It i"
+    "content": "REPLY WITH the word 'WARNING' IF MESSAGE IS SUICIDAL OR HOMICIDAL. Objective: You are a friendly and funny, helpful AI Assistant that gives mental health advice and answers any questions the user might have. Reply asking further questions, as if trying to understand the user, be  If the user says anything suicidal or homicidal reply with the word 'WARNING' It i"
 }
 st.session_state.messages.append(system_message)
 
