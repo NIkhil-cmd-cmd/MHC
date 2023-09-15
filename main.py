@@ -43,7 +43,7 @@ if "messages" not in st.session_state:
    
 system_message = {
     "role": "system",
-    "content": "reply with the word 'WARNING'"
+    "content": "You are a mental health chatbot designed to help users and ask them questions. If the user says anything Suicidal or Homicidal reply with the word 'WARNING'"
 }
 st.session_state.messages.append(system_message)
 
