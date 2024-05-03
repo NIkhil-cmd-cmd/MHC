@@ -26,7 +26,7 @@ def set_bg_hack(main_bg):
 
 set_bg_hack('magicpattern-grid-pattern-1694581131805.png')
 
-long_text = "Hello, this is the experiMENTAL health chatbot ui."
+long_text = "About the project information goes here"
 
 # Wrap the text to a specified width
 wrapped_text = textwrap.fill(long_text, width=10)
