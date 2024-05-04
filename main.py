@@ -2,7 +2,9 @@ import openai
 import streamlit as st
 import textwrap
 import base64
+
 counter = 0
+
 with open('style.css') as f:
    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
    
@@ -48,7 +50,7 @@ system_message = {
 st.session_state.messages.append(system_message)
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
+    st.session_state["openai_model"] = "text-davinci-003"
 
 for message in st.session_state.messages:
    if message["role"] != "system":
@@ -58,22 +60,18 @@ for message in st.session_state.messages:
 if prompt := st.chat_input("Say something..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
-       
         st.markdown(prompt)
        
-
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        for response in openai.ChatCompletion.create(
-            model=st.session_state["openai_model"],
-            messages=[
-                {"role": m["role"], "content": m["content"]}
-                for m in st.session_state.messages
-            ],
+        for response in openai.Completion.create(
+            engine=st.session_state["openai_model"],
+            prompt="\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages]),
+            max_tokens=150,
             stream=True,
         ):
-            full_response += response.choices[0].delta.get("content", "")
+            full_response += response.choices[0].text.strip()
             if "I'm really sorry to hear that you're feeling this way, but I can't provide the help that you need." in str(full_response) and counter == 0:
                 full_response = full_response.replace("WARNING", " ")
                 st.warning('Your message has been flagged as a potential sign of mental health issues. Please seek appropriate assistance. Refer to the resources tab for further guidance', icon="⚠️")
@@ -81,5 +79,3 @@ if prompt := st.chat_input("Say something..."):
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
-
-
