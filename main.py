@@ -28,7 +28,7 @@ def set_bg_hack(main_bg):
 
 set_bg_hack('magicpattern-grid-pattern-1694581131805.png')
 
-long_text = "information goes here"
+long_text = ""
 
 # Wrap the text to a specified width
 wrapped_text = textwrap.fill(long_text, width=10)
@@ -50,7 +50,7 @@ system_message = {
 st.session_state.messages.append(system_message)
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "text-davinci-003"
+    st.session_state["openai_model"] = "text-davinci"
 
 for message in st.session_state.messages:
    if message["role"] != "system":
