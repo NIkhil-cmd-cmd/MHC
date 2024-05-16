@@ -50,7 +50,7 @@ system_message = {
 st.session_state.messages.append(system_message)
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "text-davinci-003"
+    st.session_state["openai_model"] = "gpt-4o"
 
 for message in st.session_state.messages:
    if message["role"] != "system":
